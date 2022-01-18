@@ -1,4 +1,4 @@
-/******泛型 ：创建可重用组件*/
+/******泛型 ：创建可重用组件 https://juejin.cn/post/6844904184894980104#heading-15*/
 
 // function identity<T, U>(value: T[], message: U): T[] {
 //   return value;
