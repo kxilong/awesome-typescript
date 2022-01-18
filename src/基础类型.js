@@ -1,3 +1,4 @@
+"use strict";
 // 布尔值
 var isDone = false;
 // 数字：支持整数，浮点数，进制
@@ -46,4 +47,4 @@ function infiniteLoop() {
 // 类型断言：写代码的人比typescript更懂
 var str = "this is str";
 var strLength = str.length;
-console.log(strLength);
+var strLength2 = str.length;

@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -114,29 +115,62 @@ var Octopus = /** @class */ (function () {
 var dad = new Octopus("My Name is Octopus!!!");
 // dad.name = '11111' //不能被修改
 // 存取器
-var passcode = "secret passcode";
-var Employee1 = /** @class */ (function () {
-    function Employee1() {
+var password = "secret passcode";
+var Company = /** @class */ (function () {
+    function Company() {
     }
-    Object.defineProperty(Employee1.prototype, "fullName", {
+    Object.defineProperty(Company.prototype, "fullName", {
         get: function () {
             return this._fullName;
         },
         set: function (newName) {
-            if (passcode && passcode == "secret passcode") {
+            if (password && password == "secret passcode") {
+                console.log(1);
                 this._fullName = newName;
             }
             else {
-                console.log("Error: Unauthorized update of employee!");
+                console.log("Error");
             }
         },
         enumerable: false,
         configurable: true
     });
-    return Employee1;
+    return Company;
 }());
-var employee1 = new Employee1();
-employee1.fullName = "Bob Smith";
-if (employee1.fullName) {
-    alert(employee1.fullName);
-}
+var company = new Company();
+company.fullName = "koala";
+// 静态属性 类名.来访问静态属性
+// 抽象类: 1)不能实例化
+var Food = /** @class */ (function () {
+    function Food() {
+    }
+    Food.prototype.move = function () {
+        console.log("this is move  function ");
+    };
+    return Food;
+}());
+var Water = /** @class */ (function (_super) {
+    __extends(Water, _super);
+    function Water() {
+        return _super.call(this) || this;
+    }
+    Water.prototype.makeSound = function () {
+        throw new Error("Method not implemented.");
+    };
+    Water.prototype.generateReports = function () {
+        console.log("Generating accounting reports...");
+    };
+    return Water;
+}(Food));
+var food;
+// food = new Food();//1)不能实例化
+food = new Water();
+food.move();
+// food.generateReports(); //错误：方法在声明的抽象类中不存在
+// 把类当做接口使用
+var Point = /** @class */ (function () {
+    function Point() {
+    }
+    return Point;
+}());
+var pointsd = { x: 1, y: 1, z: 1 };

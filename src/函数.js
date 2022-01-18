@@ -1,3 +1,4 @@
+"use strict";
 // 函数类型
 function add(x, y) {
     return x + y;
@@ -24,8 +25,29 @@ var deck = {
         return function () {
             return { suits: _this.suits };
         };
-    }
+    },
 };
 var cardPicker = deck.createCardPicker();
 var pickedCard = cardPicker();
 console.log(pickedCard);
+function add1(a, b) {
+    // type Combinable = string | number;
+    if (typeof a === "string" || typeof b === "string") {
+        return a.toString() + b.toString();
+    }
+    return a + b;
+}
+// 重载类中成员
+var Calculator = /** @class */ (function () {
+    function Calculator() {
+    }
+    Calculator.prototype.add = function (a, b) {
+        if (typeof a === "string" || typeof b === "string") {
+            return a.toString() + b.toString();
+        }
+        return a + b;
+    };
+    return Calculator;
+}());
+var calculator = new Calculator();
+var result = calculator.add("Semlinker", " Kakuqo");
