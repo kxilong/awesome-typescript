@@ -237,4 +237,4 @@ class Animal<T> {
 }
 let animal = new Animal<FirstClass>();
 let firstClass1: FirstClass = animal.create(FirstClass);
-console.log(firstClass1);
+// console.log(firstClass1);
